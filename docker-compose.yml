@@ -1,0 +1,49 @@
+version: "3.8"
+
+services:  
+  postgres:
+    image: postgres:12.6
+    restart: always
+    environment: 
+      - POSTGRES_USER=emilio
+      - POSTGRES_PASSWORD=emilio2k19
+      - POSTGRES_DB=emilio
+    ports: 
+      - 5432:5432
+  pgadmin:
+    image: dpage/pgadmin4
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: "emiliocaraballo9810@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "emilio2k19"
+    ports:
+      - "8080:80"
+    depends_on: 
+      - postgres
+  backend:
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+    image: node
+    environment: 
+      - DB_HOST=postgres
+    container_name: backend
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on: 
+      - postgres
+  frontend:
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile
+    image: node:14
+    container_name: frontend
+    restart: always
+    ports:
+      - "3002:3002"
+    depends_on:
+      - postgres
+      - backend
+      
+    
+    

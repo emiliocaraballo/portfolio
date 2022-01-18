@@ -1,0 +1,112 @@
+
+#Knex
+Soporte
+Postgres , MSSQL , MySQL , MariaDB , SQLite3 , Oracle y Amazon Redshift
+
+
+#Docker
+Ver proceso
+docker ps
+
+Ejecutar docker por pimera vez
+  docker build -t {proyecto} .
+
+
+Run docker
+    Opcion 1
+        docker run -t {proyecto} .
+
+    Opcion 2
+        docker run -it -p 3000:3000 {proyecto}
+    Opcion 3    
+        docker run -d -p 3000:3000 {proyecto}
+
+Detener
+    docker stop {id}
+
+
+docker exec -it {{CONTAINER ID}} /bin/sh
+
+
+#FinDocker
+
+
+#pm2
+
+pm2 startup
+pm2 save
+
+Ejecutar
+pm2 start ecosystem.config.js 
+
+Apagar y encender el proceso
+pm2 restart ecosystem.config.js 
+
+Actualizar sin apagar
+pm2 reload ecosystem.config.js
+
+Detener Proceso.
+pm2 stop ecosystem.config.js
+
+Eliminar proceso.
+pm2 delete {id}
+
+#Fin pm2
+
+
+#knex
+
+Crear archivo para una migracion
+npx knex migrate:make migration_name -x ts
+
+Cargar migraciones pendiente
+
+npm run knex
+./node_modules/.bin/knex --knexfile src/database/knexfile.ts
+
+
+#Finknex
+
+
+#swagger
+
+"address_id":{
+    "type": "string",
+    "example": "d290f1ee-6c54-4b01-90e6-d701748f0851"
+},
+"addresses": {
+    "type": "array",
+    "items": {
+        "$ref": "#/definitions/Address"
+    }
+},
+
+//ALTER DATABASE postgres SET timezone TO 'America/Bogota';
+
+
+
+// docker
+
+Ejecutar docker por pimera vez.
+docker build --no-cache  -t backend-cuemby .
+
+Detener ya en uso
+docker stop {CONTAINER ID}
+
+Eliminar imagen
+docker rmi {IMAGE ID}
+
+Correr contenedor
+docker run -d -p 3000:3000 backend-cuemby
+
+
+
+
+// end:docker
+Paso a Paso
+Ejecutamos la intrucciones de docker-compose-yml 
+donde va descargar postgres,pgadmin4,node en caso de que no exista
+y tambien ejecutara la aplicaciones de frontend y backend en modo produccion.
+1: docker-compose up --build -d 
+2. docker exec backendCuemby sh -c "npm run bd:update" #para realizar la migracion
+3. docker exec backendCuemby sh -c "npm run info-prod" #para guardar los registro de endpoint.

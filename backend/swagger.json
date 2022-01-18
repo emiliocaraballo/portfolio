@@ -1,0 +1,1472 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "Rest API para las plataformas",
+      "version": "1.0.0",
+      "title": "Tharot Smartinfo - API",
+      "contact": {
+        "email": "emiliocaraballo9810@gmail.com"
+      }
+    },
+    "tags": [
+      {
+        "name": "role",
+        "description": "Rutas de roles"
+      },
+      {
+        "name": "menus",
+        "description": "Rutas de menus"
+      },
+      {
+        "name": "perfil",
+        "description": "Rutas de perfil"
+      },
+      {
+        "name": "setting",
+        "description": "Rutas de Configuración de proyecto"
+      },
+      {
+        "name": "upload",
+        "description": "Rutas de Upload"
+      }
+      ,{
+        "name": "users",
+        "description": "Rutas de usuarios"
+      }
+    ],
+    "schemes": [
+      "https",
+      "http"
+    ],
+    "securityDefinitions": {
+      "Bearer": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    },
+    "paths": {
+      "/role/:id":{
+        "get": {
+          "tags": [
+            "role"
+          ],
+          "summary": "Obtener listado de un solo rol",
+          "operationId": "rolId",
+          "description": "Retorna roles\n",
+          "produces": [
+            "application/json"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "type": "string",
+              "required": true
+            },
+            {
+              "in": "path",
+              "name": "id",
+              "schema":{
+                "type": "string"
+              },
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Listado de roles",
+              "schema": {
+                "$ref": "#/definitions/Roles"
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+
+        }
+      },
+      "/role": {
+        "get": {
+          "tags": [
+            "role"
+          ],
+          "summary": "Obtener listado de roles",
+          "operationId": "roles",
+          "description": "Retorna roles\n",
+          "produces": [
+            "application/json"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Listado de roles",
+              "schema": {
+                "$ref": "#/definitions/Roles"
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+
+        },
+        "post": {
+          "tags": [
+            "role"
+          ],
+          "summary": "Crear roles",
+          "operationId": "createRoles",
+          "description": "Retorna roles\n",
+          "produces": [
+            "application/json"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "type": "string",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "example": "titulo"
+                  },
+                  "rol": {
+                    "type": "string",
+                    "example": "1"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Listado de roles",
+              "schema": {
+                "$ref": "#/definitions/Roles"
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+
+        },
+        "put": {
+          "tags": [
+            "role"
+          ],
+          "summary": "Actualizar roles",
+          "operationId": "updateRoles",
+          "description": "Retorna roles\n",
+          "produces": [
+            "application/json"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "type": "string",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "example": "d290f1ee-6c54-4b01-90e6-d701748f0851"
+                  },
+                  "title": {
+                    "type": "string",
+                    "example": "titulo"
+                  },
+                  "rol": {
+                    "type": "string",
+                    "example": "1"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Listado de roles",
+              "schema": {
+                "$ref": "#/definitions/Roles"
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+
+        }
+      }, "/menus": {
+        "get": {
+          "tags": [
+            "menus"
+          ],
+          "summary": "Retornar listado de opciones de menu",
+          "operationId": "mymenu",
+          "description": "Devolver el listado de menu\n",
+          "produces": [
+            "application/json"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Consulta de menu",
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "number",
+                    "example":"1"
+                  },
+                  "menu": {
+                    "$ref": "#/definitions/Menu"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "menus"
+          ],
+          "summary": "Crear roles",
+          "operationId": "createRoles",
+          "description": "Retorna roles\n",
+          "produces": [
+            "application/json"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "type": "string",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "example": "titulo"
+                  },
+                  "orden": {
+                    "type": "number",
+                    "example": "1"
+                  },
+                  "parentid": {
+                    "type": "number",
+                    "example": "1"
+                  },
+                  "url": {
+                    "type": "string",
+                    "example": "enlace"
+                  },
+                  "status":{
+                    "type": "number",
+                    "example": "1"
+                  }
+
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Listado de Menus",
+              "schema": {
+                "$ref": "#/definitions/Menu"
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+
+        }
+      },
+      "/profile": {
+        "get": {
+          "tags": [
+            "perfil"
+          ],
+          "summary": "Retornar listado de perfil",
+          "operationId": "myperfil",
+          "description": "Devolver el listado de perfil\n",
+          "produces": [
+            "application/json"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Consulta de perfil",
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "number",
+                    "example":"1"
+                  },
+                  "menu": {
+                    "$ref": "#/definitions/Profile"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "perfil"
+          ],
+          "summary": "Crear Perfiles",
+          "operationId": "createProfile",
+          "description": "Retorna Perfiles\n",
+          "produces": [
+            "application/json"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "type": "string",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "properties": {
+                  "id_menu": {
+                    "type": "number",
+                    "example": "1"
+                  },
+                  "status": {
+                    "type": "number",
+                    "example": "1"
+                  },
+                  "id_role": {
+                    "type": "number",
+                    "example": "1"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Listado de Perfil",
+              "schema": {
+                "$ref": "#/definitions/Profile"
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+
+        },
+        "put": {
+          "tags": [
+            "perfil"
+          ],
+          "summary": "Actualizar Perfiles",
+          "operationId": "updateProfile",
+          "description": "Retorna Perfiles\n",
+          "produces": [
+            "application/json"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "type": "string",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "example":"b5e1fe6d-4059-568f-0070-ff65bc536f0b"
+                  },
+                  "id_menu": {
+                    "type": "number",
+                    "example": "1"
+                  },
+                  "status": {
+                    "type": "number",
+                    "example": "1"
+                  },
+                  "id_role": {
+                    "type": "number",
+                    "example": "1"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Listado de Perfil",
+              "schema": {
+                "$ref": "#/definitions/Profile"
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+
+        }
+      }
+      ,"/setting":{
+        "get": {
+          "tags": [
+            "setting"
+          ],
+          "summary": "Retornar la configuración de proyectos.",
+          "operationId": "mysetting",
+          "description": "Devolver el listado de la configuración de proyectos\n",
+          "produces": [
+            "application/json"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Consulta de configuración",
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "number",
+                    "example":"1"
+                  },
+                  "setting": {
+                    "$ref": "#/definitions/Setting"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "setting"
+          ],
+          "summary": "Actualizar la configuración de proyectos.",
+          "operationId": "mysettingupdate",
+          "description": "Actualizar y Mostrar la configuración de proyectos\n",
+          "produces": [
+            "application/json"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "type": "string",
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "properties": {
+                  "project_name": {
+                    "type": "string",
+                    "example": "Nombre"
+                  },
+                  "mail": {
+                    "type": "string",
+                    "example": "Correo"
+                  }
+                  ,
+                  "phone": {
+                    "type": "string",
+                    "example": "Telefonoo"
+                  },
+                  "id": {
+                    "format": "uuid",
+                    "example":"b5e1fe6d-4059-568f-0070-ff65bc536f0b"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Consulta de configuración",
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "number",
+                    "example":"1"
+                  },
+                  "setting": {
+                    "$ref": "#/definitions/Setting"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+        }
+      }
+      ,"/upload":{
+        "post": {
+          "tags": [
+            "upload"
+          ],
+          "summary": "Subir un Archivo.",
+          "operationId": "myuploadinsert",
+          "description": "Subir y Mostrar la ruta de archivo\n",
+          "produces": [
+            "application/json"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "formData",
+              "body": "multipart/form-data",
+              "type": "file",
+              "schema":{
+                "type": "object",
+                "properties":{
+                  "file":{
+                    "type": "array",
+                    "items":{
+                      "type": "string",
+                      "format": "binary"
+                    }
+
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Retonar información acerca de upload que subio.",
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "number",
+                    "example":"1"
+                  },
+                  "setting": {
+                    "$ref": "#/definitions/Setting"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+        }
+      }
+      ,
+      "/administrator/users/login": {
+        "post": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Login de usuarios",
+          "operationId": "loginUser",
+          "description": "Retorna usuario y token\n",
+          "produces": [
+            "application/json"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "properties": {
+                  "user": {
+                    "type": "string",
+                    "example": "correo@email.com"
+                  },
+                  "pass": {
+                    "type": "string",
+                    "example": "password"
+                  }
+                  ,
+                  "code": {
+                    "type": "number",
+                    "example": "123456"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Usuario",
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "number",
+                    "example":"1"
+                  },
+                  "token": {
+                    "type": "string",
+                    "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Nzk5NzUzNDUsImlkIjoiNWUyYzc0YTE5YThjNGQ0YWQ2YzRjY2QxIiwicm9sZSI6IjEifQ.FIEc5P6x31i2UuCd0kL2cOH6nbwnLTDAyWbhU9QzpgU"
+                  },
+                  "user": {
+                    "$ref": "#/definitions/User"
+                  }
+                 
+                }
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "404": {
+              "description": "No existe",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+        }
+      },
+      "/administrator/users/validate": {
+        "post": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Validar existencia de usuario",
+          "operationId": "getUserByEmail",
+          "description": "Retorna 200 vacio si existe, 404 si no\n",
+          "produces": [
+            "application/json"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "properties": {
+                  "user": {
+                    "type": "string",
+                    "example": "correo@email.com"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Exists",
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "number",
+                    "example": "1"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "401": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+        }
+      },
+      "/administrator/users/recoverpassword": {
+        "post": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Enviar la solicitud para restablecer tu contraseña",
+          "operationId": "UserSoliClave",
+          "description": "",
+          "produces": [
+            "application/json"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "properties": {
+                  "user": {
+                    "type": "string",
+                    "example": "correo@email.com"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "number",
+                    "example": "1"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "404": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+        }
+      },
+      "/administrator/users/activepassword": {
+        "post": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Cambiar la clave de usuario",
+          "operationId": "UserUpdateSoliClave",
+          "description": "",
+          "produces": [
+            "application/json"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "properties": {
+                  "user": {
+                    "type": "string",
+                    "example": "correo@email.com"
+                  },
+                  "pass": {
+                    "type": "string",
+                    "example": ""
+                  },
+                  "code": {
+                    "type": "string",
+                    "example": ""
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "number",
+                    "example": "1"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "404": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+        }
+      },
+      "/administrator/users/me": {
+        "get": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Obtener usuario que está haciendo la consulta y actualizado el Token",
+          "operationId": "getMyUser",
+          "description": "Retorna al usuario que hace la consulta\n",
+          "produces": [
+            "application/json"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "type": "string",
+              "required": true
+            },
+            {
+              "in": "header",
+              "name": "id",
+              "type": "uuid",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Usuario de la consulta",
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "number",
+                    "example":"1"
+                  },
+                  "user": {
+                    "$ref": "#/definitions/User"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+        }
+      },
+      "/administrator/users/create": {
+        "post": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Crear usuario y generar un token",
+          "operationId": "createMyUser",
+          "description": "Crear el usuario y retornar la informacion mas el token\n",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Usuario de la consulta",
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "number",
+                    "example":"1"
+                  },
+                  "token": {
+                    "type": "string",
+                    "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Nzk5NzUzNDUsImlkIjoiNWUyYzc0YTE5YThjNGQ0YWQ2YzRjY2QxIiwicm9sZSI6IjEifQ.FIEc5P6x31i2UuCd0kL2cOH6nbwnLTDAyWbhU9QzpgU"
+                  },
+                  "user": {
+                    "$ref": "#/definitions/User"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+        }
+      }, "/users/update": {
+        "put": {
+          "tags": [
+            "users"
+          ],
+          "summary": "Actualizar usuario y actualizar el Token",
+          "operationId": "updateMyUser",
+          "description": "Actualizar el usuario y retornar el usuario con su nuevo token\n",
+          "produces": [
+            "application/json"
+          ],
+          "security": [
+            {
+              "Bearer": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "header",
+              "name": "Authorization",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Usuario de la consulta",
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "number",
+                    "example":"1"
+                  },
+                  "token": {
+                    "type": "string",
+                    "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Nzk5NzUzNDUsImlkIjoiNWUyYzc0YTE5YThjNGQ0YWQ2YzRjY2QxIiwicm9sZSI6IjEifQ.FIEc5P6x31i2UuCd0kL2cOH6nbwnLTDAyWbhU9QzpgU"
+                  },
+                  "user": {
+                    "$ref": "#/definitions/User"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Error message",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            },
+            "401": {
+              "description": "Unauthorized",
+              "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+              }
+            }
+          }
+        }
+      }
+
+    },
+    "definitions": {
+      "Roles": {
+        "required": [
+          "title",
+          "status"
+        ],
+        "properties": {
+          "code": {
+            "type": "number",
+            "example":"1"
+          },  
+          "role":{
+            "type":"object",
+            "properties":{
+              "id": {
+                "type": "string",
+                "format": "uuid",
+                "example":"b5e1fe6d-4059-568f-0070-ff65bc536f0b"
+              },
+              "title": {
+                "type": "string",
+                "example":"Admin"
+              },
+              "updated_at": {
+                "type": "datetime",
+                "example":"fecha y hora"
+              },
+              "rol": {
+                "type": "number",
+                "example":"1"
+              }
+            }
+          }
+        }
+      },
+      "User": {
+        "required": [
+          "name",
+          "last_name",
+          "email"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "nombre"
+          },
+          "last_name": {
+            "type": "string",
+            "example": "apellido"
+          },
+          "identification": {
+            "type": "string",
+            "example": "identificación"
+          },
+          "role": {
+            "type": "string",
+            "example": "0"
+          },
+          "phone": {
+            "type": "string",
+            "example": "3013388822"
+          },
+          "gender": {
+            "type": "string",
+            "example": "M"
+          },
+          "email": {
+            "type": "string",
+            "example": "correo@email.com"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "datetime",
+            "example": "2019-12-11T19:22:49.503Z"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "d290f1ee-6c54-4b01-90e6-d701748f0851"
+          }
+        }
+      },
+      "Menu": {
+        "required": [
+          "title",
+          "url",
+          "orden"
+        ],
+        "properties": {
+          "code": {
+            "type": "number",
+            "example":"1"
+          },
+          "menu":{
+            "type":"object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "example": "nombre"
+              },
+              "url": {
+                "type": "string",
+                "example": "enlace"
+              },
+              "orden": {
+                "type": "number",
+                "example": "1"
+              },
+              "id": {
+                "type": "number",
+                "format": "number",
+                "example": "1"
+              },
+              "sub": {
+                "type": "object",
+                "example": "[]"
+              }
+            }
+          }
+        }
+      },
+      "Profile": {
+        "required": [
+          "id",
+          "id_menu",
+          "id_role"
+        ],
+        "properties": {
+          "code": {
+            "type": "number",
+            "example":"1"
+          },
+          "profile":{
+            "type":"object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid",
+                "example": "d290f1ee-6c54-4b01-90e6-d701748f0851"
+              },
+              "id_menu": {
+                "type": "number",
+                "example": "1"
+              },
+              "id_role": {
+                "type": "number",
+                "example": "1"
+              },
+              "updated_at": {
+                "type": "datetime",
+                "example": ""
+              },
+              "created_at": {
+                "type": "datetime",
+                "example": ""
+              }
+            }
+          }
+          
+        }
+      },
+      "Setting": {
+        "required": [
+          "id",
+          "project_name",
+          "mail",
+          "phone",
+          "status"
+        ],
+        "properties": {
+          "code": {
+            "type": "number",
+            "example":"1"
+          },
+          "setting":{
+            "type":"object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid",
+                "example": "d290f1ee-6c54-4b01-90e6-d701748f0851"
+              },
+              "project_name": {
+                "type": "string",
+                "example": "Nombre"
+              },
+              "mail": {
+                "type": "string",
+                "example": "correo"
+              },
+              "phone": {
+                "type": "string",
+                "example": "Telefono"
+              },
+              "created_at": {
+                "type": "datetime",
+                "example": ""
+              }
+            }
+          }
+          
+        }
+      },
+      "Upload": {
+        "required": [
+          "id",
+          "project_name",
+          "mail",
+          "phone",
+          "status"
+        ],
+        "properties": {
+          "code": {
+            "type": "number",
+            "example":"1"
+          },
+          "setting":{
+            "type":"object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid",
+                "example": "d290f1ee-6c54-4b01-90e6-d701748f0851"
+              },
+              "project_name": {
+                "type": "string",
+                "example": "Nombre"
+              },
+              "mail": {
+                "type": "string",
+                "example": "correo"
+              },
+              "phone": {
+                "type": "string",
+                "example": "Telefono"
+              },
+              "created_at": {
+                "type": "datetime",
+                "example": ""
+              }
+            }
+          }
+          
+        }
+      },
+      "ErrorResponse": {
+        "required": [
+          "message"
+        ],
+        "properties": {
+          "code": {
+            "type": "number",
+            "example": "0"
+          },
+          "message": {
+            "type": "string",
+            "example": "Error message"
+          }
+        }
+      }
+    },
+    "host": "localhost:3000",
+    "basePath": "/api"
+  }
