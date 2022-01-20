@@ -646,11 +646,27 @@ export const state = () => ({
   aboutMe: [
     {
       id: uuidv4(),
-      bio: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.",
+      bio: "Un buscador de soluciones opmizada, apasionado de laboral en esta area donde avanza constantemente la tecnología para el desarrollo de aplicaciones web, microservicio, contenedores entre otra cosa.",
     },
     {
       id: uuidv4(),
-      bio: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?",
+      bio: "Soy una persona movada, ambiciosa, apasionada a la que le gusta superar retos en programación para alcanzar metas y crecer año tras año.",
+    },
+    {
+      id: uuidv4(),
+      bio: "Desarrollo productos a nivel modular para reulización de código para otros proyectos similares.",
+    },
+    {
+      id: uuidv4(),
+      bio: "Colaboro en la planificación de proyectos y reviso las funcionalidades del equipo y propongo soluciones cuando surgen dificultades en el proceso.",
+    },
+    {
+      id: uuidv4(),
+      bio: "He realizado mas de 50 Proyectos ya finalizado.",
+    },
+    {
+      id: uuidv4(),
+      bio: "Mas de 2 años de experiencia",
     },
   ],
   copyrightDate: new Date().getFullYear(),

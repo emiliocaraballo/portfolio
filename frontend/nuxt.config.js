@@ -5,7 +5,7 @@ export default {
   },
   target: "server",
   server:{
-    port: process.env.PORT || 3002,
+    port: process.env.PORT || 3001,
     host: process.env.HOST || 'localhost'
   },
   static: {

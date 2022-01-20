@@ -43,7 +43,8 @@
       </p>
       <div class="flex justify-center sm:block" style="cursor:pointer;">
         <a
-          href="https://www.linkedin.com/in/emilio-caraballo"
+          download
+          href="/hoja-de-vida.pdf"
           target=""
           class="
             flex
@@ -70,7 +71,11 @@
           aria-label="LinkedIn"
 
         >
-          <span class="text-sm sm:text-lg">LinkedIn</span></a
+          <i
+            data-feather="arrow-down-circle"
+            class="ml-0 sm:ml-1 mr-2 sm:mr-3 w-5 sm:w-6"
+          ></i>
+          <span class="text-sm sm:text-lg">Descargar CV</span></a
         >
       </div>
     </div>

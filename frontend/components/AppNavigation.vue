@@ -32,7 +32,7 @@
       aria-label="Proyectos"
       >Proyectos</NuxtLink
     >
-    <!-- <NuxtLink
+    <NuxtLink
       to="/about"
       class="
         block
@@ -53,7 +53,7 @@
       "
       aria-label="Acerca de mí"
       >Acerca de mí</NuxtLink
-    > -->
+    >
     <NuxtLink
       to="/contact"
       class="
